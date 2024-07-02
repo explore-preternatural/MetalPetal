@@ -1,12 +1,14 @@
-// swift-tools-version:5.1
-
-// requires SE-0271
+// swift-tools-version:5.10
 
 import PackageDescription
 
 let package = Package(
     name: "MetalPetal",
-    platforms: [.macOS(.v10_13), .iOS(.v11), .tvOS(.v13)],
+    platforms: [
+        .macOS(.v14),
+        .iOS(.v16),
+        .tvOS(.v16)
+    ],
     products: [
         .library(
             name: "MetalPetal",
@@ -17,17 +19,24 @@ let package = Package(
     targets: [
         .target(
             name: "MetalPetal",
-            dependencies: ["MetalPetalObjectiveC"]),
+            dependencies: ["MetalPetalObjectiveC"]
+        ),
         .target(
             name: "MetalPetalObjectiveC",
-            dependencies: []),
+            dependencies: []
+        ),
         .target(
             name: "MetalPetalTestHelpers",
             dependencies: ["MetalPetal"],
-            path: "Tests/MetalPetalTestHelpers"),
+            path: "Tests/MetalPetalTestHelpers"
+        ),
         .testTarget(
             name: "MetalPetalTests",
-            dependencies: ["MetalPetal", "MetalPetalTestHelpers"]),
+            dependencies: [
+                "MetalPetal",
+                "MetalPetalTestHelpers"
+            ]
+        ),
     ],
     cxxLanguageStandard: .cxx14
 )

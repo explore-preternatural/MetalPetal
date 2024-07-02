@@ -14,8 +14,6 @@
 
 @interface MTIImageView ()
 
-@property (nonatomic, weak, readonly) MTKView *renderView;
-
 @property (nonatomic) CGFloat screenScale;
 
 @property (nonatomic, strong) NSError *contextCreationError;

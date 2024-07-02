@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 __attribute__((objc_subclassing_restricted))
 @interface MTIImageView : UIView <MTKViewDelegate>
 
+@property (nonatomic, weak, readonly) MTKView *renderView;
+
 @property (nonatomic) BOOL automaticallyCreatesContext;
 
 @property (nonatomic) MTLPixelFormat colorPixelFormat;
